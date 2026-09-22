@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayaz Khan — MERN Stack Developer | Python AI & Data Analytics</title>
+  <meta name="description" content="Personal portfolio of Ayaz Khan, MERN Stack Developer specializing in Full-Stack Web Development, Python & AI Tools, WordPress, and Data Analytics.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+
+  <!-- Instant Dark / Light Theme Initialization (Defaults to Dark Mode) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('ayaz-portfolio-theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark-theme');
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.remove('dark-theme');
+        });
+      } else {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+
+  <!-- Bespoke Magnetic Cursor Elements -->
+  <div class="custom-cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Primary Navigation -->
+  <nav class="site-nav" id="topNav">
+    <a href="#" class="brand-signature">Ayaz Khan</a>
+
+    <div class="nav-award-badge" title="Full Stack Developer & AI Engineer">
+      <span class="trophy-icon">🏆</span>
+      <span>MERN & AI Engineer <strong>2025</strong></span>
+    </div>
+
+    <div class="nav-controls">
+      <!-- WhatsApp Direct Connect Icon Button -->
+      <a 
+        href="https://wa.me/916392151138?text=Hi%20Ayaz,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="nav-whatsapp-btn" 
+        aria-label="Chat on WhatsApp (+91 6392151138)" 
+        title="Chat on WhatsApp (+91 6392151138)"
+      >
+        <svg class="whatsapp-icon-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </a>
+
+      <!-- Dark / Light Mode Switcher Button -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark and light theme" title="Switch to Light Mode">
+        <span class="theme-icon">☀️</span>
+      </button>
+
+      <!-- Navigation Menu Toggle -->
+      <button class="menu-toggle-btn" id="menuToggle" aria-label="Open navigation menu">
+        <div class="menu-hamburger">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Modern Slide-Over Navigation Sidebar Drawer -->
+  <div class="nav-sidebar-backdrop" id="sidebarBackdrop" aria-modal="true" role="dialog">
+    <aside class="nav-sidebar-panel" id="sidebarPanel">
+      <div class="sidebar-header">
+        <div class="sidebar-brand-group">
+          <span class="brand-signature">Ayaz Khan</span>
+          <div class="sidebar-status-tag">
+            <span class="status-indicator-dot"></span>
+            <span>Available for Work</span>
+          </div>
+        </div>
+        <div class="sidebar-header-actions">
+          <button class="sidebar-theme-btn" id="sidebarThemeToggle" aria-label="Toggle dark and light theme" title="Switch Theme">
+            <span class="theme-icon">☀️</span>
+          </button>
+          <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation sidebar">✕</button>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul class="sidebar-links-list">
+          <li class="sidebar-link-item">
+            <a href="#hero" class="sidebar-link">
+              <span class="link-idx">01</span>
+              <span class="link-label">Overview</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#philosophy" class="sidebar-link">
+              <span class="link-idx">02</span>
+              <span class="link-label">Engineering Focus</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#techStack" class="sidebar-link">
+              <span class="link-idx">03</span>
+              <span class="link-label">Tech Arsenal</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#process" class="sidebar-link">
+              <span class="link-idx">04</span>
+              <span class="link-label">Build Process</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#experience" class="sidebar-link">
+              <span class="link-idx">05</span>
+              <span class="link-label">Work Experience</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#services" class="sidebar-link">
+              <span class="link-idx">06</span>
+              <span class="link-label">Client Services</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#testimonials" class="sidebar-link">
+              <span class="link-idx">07</span>
+              <span class="link-label">Testimonials</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+          <li class="sidebar-link-item">
+            <a href="#contact" class="sidebar-link">
+              <span class="link-idx">08</span>
+              <span class="link-label">Contact & Hire</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-cta-card">
+        <p class="sidebar-cta-title">Have a project in mind?</p>
+        <p class="sidebar-cta-sub">Currently booking select Full-Stack, AI, & CMS engagements for Q1 & Q2.</p>
+        <a href="#contact" class="sidebar-action-btn smooth-anchor">Let's Build Together →</a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-socials">
+          <a href="https://wa.me/916392151138?text=Hi%20Ayaz,%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="sidebar-whatsapp-link">WhatsApp</a>
+          <a href="https://github.com/khanayaz625" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/ayaz-khan-6545b222b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/__a.y.a.z___/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+        <span class="sidebar-location">India • Remote Worldwide</span>
+      </div>
+    </aside>
+  </div>
+
+  <main>
+    <!-- ========================================================
+         HERO SECTION: Ayaz Khan - MERN Developer
+         ======================================================== -->
+    <section class="hero-section" id="hero">
+      <!-- Electric Chartreuse Radial Glow -->
+      <div class="hero-aura-glow" aria-hidden="true"></div>
+
+      <!-- Hero Header Typography -->
+      <div class="hero-header">
+        <h1 class="hero-title-greeting">Hi I'm Ayaz</h1>
+        <span class="hero-title-role">MERN Developer</span>
+      </div>
+
+      <!-- Center Stage: Cutout Portrait & Floating Context Badges -->
+      <div class="hero-center-stage">
+        
+        <!-- Left Floating Status Badge -->
+        <div class="hero-pill-status" data-magnetic="0.2">
+          <span class="status-indicator-dot"></span>
+          <span>Available for freelance & full-time roles</span>
+        </div>
+
+        <!-- Central Portrait Blend: Ayaz Khan (100% Transparent PNG with Neon Highlight Contour) -->
+        <div class="hero-portrait-wrapper">
+          <img 
+            src="/assets/ayaz_khan.png?v=7" 
+            alt="Ayaz Khan - MERN Stack Developer & AI Engineer" 
+            class="hero-portrait-img"
+            loading="eager"
+          >
+        </div>
+
+        <!-- Bottom Left Social Proof Stack -->
+        <div class="hero-social-proof" data-magnetic="0.15">
+          <div class="avatar-stack">
+            <div class="avatar-circle c1" title="Daniel Reid"></div>
+            <div class="avatar-circle c2" title="Sarah Nguyen"></div>
+            <div class="avatar-circle c3" title="Marcus Vance"></div>
+          </div>
+          <p class="social-proof-copy">
+            Trusted by founders & teams across <strong>11+ shipped web applications</strong> and AI workflows.
+          </p>
+        </div>
+
+        <!-- Right Floating Bio Statement -->
+        <div class="hero-bio-tagline">
+          passionate about engineering scalable full-stack applications, intelligent AI workflows, and data-driven digital solutions.
+        </div>
+
+        <!-- Bottom Right Magnetic CTA Button -->
+        <a href="#contact" class="hero-cta-btn smooth-anchor" data-magnetic="0.35">
+          <span>Hire Me / Let's Talk</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Tech Ecosystem Bar -->
+      <div class="hero-brands-bar">
+        <div class="brand-logo-item" title="MongoDB Database">
+          <span class="tech-icon">🍃</span>
+          <span>MongoDB</span>
+        </div>
+        <div class="brand-logo-item" title="Express.js Server">
+          <span class="tech-icon">⚡</span>
+          <span>Express.js</span>
+        </div>
+        <div class="brand-logo-item" title="React.js Frontend">
+          <span class="tech-icon">⚛️</span>
+          <span>React.js</span>
+        </div>
+        <div class="brand-logo-item" title="Node.js Runtime">
+          <span class="tech-icon">🟢</span>
+          <span>Node.js</span>
+        </div>
+        <div class="brand-logo-item" title="Python 3 & AI">
+          <span class="tech-icon">🐍</span>
+          <span>Python & AI</span>
+        </div>
+        <div class="brand-logo-item" title="Next.js Fullstack">
+          <span class="tech-icon">▲</span>
+          <span>Next.js</span>
+        </div>
+        <div class="brand-logo-item" title="WordPress CMS">
+          <span class="tech-icon">🌐</span>
+          <span>WordPress</span>
+        </div>
+        <div class="brand-logo-item" title="Data Analytics">
+          <span class="tech-icon">📊</span>
+          <span>Data Analytics</span>
+        </div>
+      </div>
+
+      <!-- Featured Teaser Banner -->
+      <div class="hero-teaser-banner">
+        <div class="teaser-content">
+          <h3>Full-Stack Engineering & Intelligent AI Systems</h3>
+          <p>Architecting production-ready MERN web platforms, autonomous Python AI agent workflows, headless WordPress ecosystems, and deep data analytics pipelines.</p>
+          <div class="teaser-tags">
+            <span class="teaser-tag">MERN Stack</span>
+            <span class="teaser-tag">Python & LLM Agents</span>
+            <span class="teaser-tag">Headless WordPress</span>
+            <span class="teaser-tag">Data Analytics</span>
+          </div>
+        </div>
+        <div class="teaser-stats-grid">
+          <div class="teaser-stat-item">
+            <div class="teaser-stat-num">4+</div>
+            <div class="teaser-stat-label">Years Exp</div>
+          </div>
+          <div class="teaser-stat-item">
+            <div class="teaser-stat-num">11+</div>
+            <div class="teaser-stat-label">Projects Built</div>
+          </div>
+          <div class="teaser-stat-item">
+            <div class="teaser-stat-num">99.4%</div>
+            <div class="teaser-stat-label">Client Score</div>
+          </div>
+          <div class="teaser-stat-item">
+            <div class="teaser-stat-num">10M+</div>
+            <div class="teaser-stat-label">Data Rows</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ENGINEERING STATEMENT & FLOATING SKILLS
+         ======================================================== -->
+    <section class="philosophy-section" id="philosophy">
+      <div class="pill-badge">
+        <span>About My Engineering Focus</span>
+      </div>
+
+      <div class="philosophy-wrapper">
+        <!-- Floating Skills Around the Statement -->
+        <div class="floating-skills-container" aria-hidden="true">
+          <div class="floating-skill-pill">MERN Stack</div>
+          <div class="floating-skill-pill">Python & AI Tools</div>
+          <div class="floating-skill-pill">React & Next.js</div>
+          <div class="floating-skill-pill">Node.js & Express</div>
+          <div class="floating-skill-pill">WordPress / CMS</div>
+          <div class="floating-skill-pill">Data Analytics</div>
+        </div>
+
+        <h2 class="philosophy-statement">
+          focus is on engineering <span class="emphasis">scalable full-stack</span> architectures, intelligent <span class="emphasis">AI workflows</span>, and data-driven solutions that <span class="highlight-word">convert & scale</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         NEW SECTION: TECHNICAL ARSENAL / TECH STACK MATRIX
+         ======================================================== -->
+    <section class="stack-section" id="techStack">
+      <div class="section-header-centered">
+        <p class="section-eyebrow">/ Technical Arsenal</p>
+        <h2 class="section-title">Core Stack & Developer Toolkit</h2>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="stack-category-tabs">
+        <button class="stack-tab-btn active" data-stack="mern">🍃 MERN Stack</button>
+        <button class="stack-tab-btn" data-stack="aiAndPython">🐍 Python & AI Tools</button>
+        <button class="stack-tab-btn" data-stack="wordpress">🌐 WordPress & CMS</button>
+        <button class="stack-tab-btn" data-stack="dataAnalytics">📊 Data Analytics</button>
+      </div>
+
+      <!-- Dynamic Cards Grid -->
+      <div class="stack-cards-grid" id="stackCardsContainer">
+        <!-- Injected dynamically by JS based on active tab -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROCESS PIPELINE ("Here's How I Build")
+         ======================================================== -->
+    <section class="process-section" id="process">
+      <div class="section-header-centered">
+        <p class="section-eyebrow">/ Engineering Lifecycle</p>
+        <h2 class="section-title">Here's how I build</h2>
+      </div>
+
+      <div class="process-cards-container">
+        <!-- Animated Connecting Squiggly Line SVG -->
+        <svg class="process-connector-svg" viewBox="0 0 1100 120" preserveAspectRatio="none" aria-hidden="true">
+          <path class="process-connector-path" d="M 180,60 C 320,10 420,110 550,60 C 680,10 780,110 920,60" />
+        </svg>
+
+        <!-- Step 01 -->
+        <div class="process-card">
+          <div class="process-step-num">01</div>
+          <h3 class="process-step-title">Architecture & Discovery</h3>
+          <p class="process-step-desc">
+            Thoroughly planning technical requirements, data models, API contracts, and selecting the optimal technology stack for long-term scalability.
+          </p>
+          <ul class="process-step-deliverables">
+            <li>Database Schema & Indexes (MongoDB/SQL)</li>
+            <li>RESTful & WebSocket API Contracts</li>
+            <li>System Scalability Architecture</li>
+          </ul>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="process-card">
+          <div class="process-step-num">02</div>
+          <h3 class="process-step-title">Full-Stack Development & AI</h3>
+          <p class="process-step-desc">
+            Writing modular, secure, and clean code with modern MERN architecture, AI agent pipelines (LangChain/LLMs), and responsive UI components.
+          </p>
+          <ul class="process-step-deliverables">
+            <li>Modular React & Next.js Components</li>
+            <li>Secure Express & FastAPI Endpoints</li>
+            <li>RAG & Autonomous AI Agents</li>
+          </ul>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="process-card">
+          <div class="process-step-num">03</div>
+          <h3 class="process-step-title">QA, Analytics & Deployment</h3>
+          <p class="process-step-desc">
+            Rigorous automated testing, SEO optimization, continuous deployment (CI/CD), and integrating real-time telemetry and data analytics.
+          </p>
+          <ul class="process-step-deliverables">
+            <li>Production Cloud Deployments (AWS/Vercel)</li>
+            <li>Lighthouse 95+ Core Web Vitals</li>
+            <li>Telemetry & Data Analytics Dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WORK EXPERIENCE & PROFESSIONAL LEADERSHIP SECTION
+         ======================================================== -->
+    <section class="experience-section" id="experience">
+      <div class="section-header-centered">
+        <p class="section-eyebrow">/ Professional Roles</p>
+        <h2 class="section-title">Work Experience & Leadership</h2>
+        <p class="section-subtitle">Real-world software engineering leadership, technical training, and remote enterprise WordPress web management.</p>
+      </div>
+
+      <div class="experience-grid">
+        <!-- Experience Card 1: DigiCoders Technologies -->
+        <div class="experience-card" data-company="digicoders">
+          <div class="experience-card-header">
+            <div class="experience-role-group">
+              <div class="experience-badge-row">
+                <span class="experience-status-tag active">
+                  <span class="status-indicator-dot"></span>
+                  Currently Working
+                </span>
+                <span class="experience-mode-tag">In-Office • Full-Time</span>
+              </div>
+              <h3 class="experience-role-title">Training Head</h3>
+              <div class="experience-company-line">
+                <span class="company-name">DigiCoders Technologies</span>
+                <span class="company-divider">•</span>
+                <span class="company-location">📍 Kanpur, India</span>
+              </div>
+            </div>
+            <div class="experience-icon-orb" title="Technical Training & Leadership">🎓</div>
+          </div>
+
+          <p class="experience-summary">
+            Directing software training programs and curriculum architecture. Mentoring developers and students across full-stack MERN stack development, Python scripting, database design, and production deployment standards.
+          </p>
+
+          <div class="experience-key-highlights">
+            <h4 class="highlights-heading">Key Responsibilities & Impact:</h4>
+            <ul class="highlights-list">
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Curriculum Architecture:</strong> Designing hands-on full-stack tracks covering MongoDB, Express.js, React.js, and Node.js.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Developer Mentorship:</strong> Trained & mentored 500+ aspiring software engineers on modular architecture, Git workflows, and clean code.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Python & AI Workshops:</strong> Conducting deep-dive sessions on Python automation, RESTful APIs, and asynchronous backend services.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Production Capstone Guidance:</strong> Evaluating industry-grade project builds, running code reviews, and supervising deployment.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-tech-tags">
+            <span class="exp-tech-tag">MERN Stack</span>
+            <span class="exp-tech-tag">React.js</span>
+            <span class="exp-tech-tag">Node.js</span>
+            <span class="exp-tech-tag">Python</span>
+            <span class="exp-tech-tag">Technical Mentorship</span>
+          </div>
+        </div>
+
+        <!-- Experience Card 2: Zakara International Company -->
+        <div class="experience-card" data-company="zakara">
+          <div class="experience-card-header">
+            <div class="experience-role-group">
+              <div class="experience-badge-row">
+                <span class="experience-status-tag active">
+                  <span class="status-indicator-dot"></span>
+                  Currently Working
+                </span>
+                <span class="experience-mode-tag wfh">Remote • Work From Home (WFH)</span>
+              </div>
+              <h3 class="experience-role-title">WordPress Manager</h3>
+              <div class="experience-company-line">
+                <span class="company-name">Zakara International Company</span>
+                <span class="company-divider">•</span>
+                <span class="company-location">📍 Kanpur, India (WFH)</span>
+              </div>
+            </div>
+            <div class="experience-icon-orb" title="WordPress & Digital Management">🌐</div>
+          </div>
+
+          <p class="experience-summary">
+            Managing and directing the entire web presence and digital commerce infrastructure for Zakara International Company in a dedicated Work From Home (WFH) capacity. Leading custom WordPress development, WooCommerce performance, and site architecture.
+          </p>
+
+          <div class="experience-key-highlights">
+            <h4 class="highlights-heading">Key Responsibilities & Impact:</h4>
+            <ul class="highlights-list">
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>End-to-End CMS Operations:</strong> Managing enterprise WordPress & WooCommerce online store with 99.9% reliable uptime.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Custom PHP Architecture:</strong> Engineering bespoke WordPress themes, template hooks, and tailor-made plugin extensions.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Speed & Core Web Vitals:</strong> Optimizing server-side caching, asset delivery, mobile responsiveness, and technical SEO.</span>
+              </li>
+              <li>
+                <span class="highlight-check">✓</span>
+                <span><strong>Security & Resiliency:</strong> Overseeing automated cloud backups, database tuning, secure payment gateways, and malware defense.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-tech-tags">
+            <span class="exp-tech-tag">WordPress</span>
+            <span class="exp-tech-tag">WooCommerce</span>
+            <span class="exp-tech-tag">Custom PHP</span>
+            <span class="exp-tech-tag">Core Web Vitals</span>
+            <span class="exp-tech-tag">Remote WFH</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CLIENT TESTIMONIALS
+         ======================================================== -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Ayaz built our complete MERN stack MVP in record time. His deep grasp of Node.js backend architecture and responsive React interfaces made the entire launch effortless."
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-avatar" style="background-image: url('/assets/client_avatars.jpg'); background-position: 10% 10%;"></div>
+            <div class="author-info">
+              <span class="author-name">Daniel Reid</span>
+              <span class="author-role">Founder & CEO at FocalPoint Tech</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Ayaz integrated a custom Python AI agent into our platform that automated hours of manual client data analysis. Extremely skilled, reliable, and communicative."
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-avatar" style="background-image: url('/assets/client_avatars.jpg'); background-position: 90% 10%;"></div>
+            <div class="author-info">
+              <span class="author-name">Sarah Nguyen</span>
+              <span class="author-role">Product Lead at FinPulse Labs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SERVICES & ENGINEERING SOLUTIONS SECTION (Replaced Second-to-Last Section)
+         ======================================================== -->
+    <section class="services-section" id="services">
+      <div class="section-header-centered">
+        <p class="section-eyebrow">/ What I Deliver</p>
+        <h2 class="section-title">Developer Services & Solutions</h2>
+        <p class="section-subtitle">Turnkey engineering solutions tailored for high-growth tech startups, digital agencies, and modern businesses.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Full-Stack MERN & SaaS Platforms -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-box">🍃</div>
+            <span class="service-duration-badge">2 – 4 Weeks</span>
+          </div>
+          <h3 class="service-card-title">Full-Stack MERN & SaaS Platforms</h3>
+          <p class="service-card-desc">
+            End-to-end web architecture from relational/document database schemas to high-throughput Node.js microservices and ultra-responsive React & Next.js user interfaces.
+          </p>
+          <div class="service-deliverables">
+            <h4>Key Deliverables:</h4>
+            <ul>
+              <li><span>✓</span> Robust RESTful & GraphQL API Endpoints</li>
+              <li><span>✓</span> JWT & OAuth2 Secure Authentication</li>
+              <li><span>✓</span> MongoDB Indexing & Aggregation Pipelines</li>
+              <li><span>✓</span> Production Cloud Deployment (AWS / Vercel)</li>
+            </ul>
+          </div>
+          <a href="#contact" class="service-cta-btn smooth-anchor" data-service="MERN SaaS Application">
+            <span>Inquire for This Project</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Service 2: Python AI Agents & Automation -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-box">🐍</div>
+            <span class="service-duration-badge">1 – 3 Weeks</span>
+          </div>
+          <h3 class="service-card-title">Python AI Agents & LLM Pipelines</h3>
+          <p class="service-card-desc">
+            Autonomous LLM workflows, custom RAG document Q&A systems, tool-calling multi-agent architectures, and high-performance FastAPI backends.
+          </p>
+          <div class="service-deliverables">
+            <h4>Key Deliverables:</h4>
+            <ul>
+              <li><span>✓</span> LangChain & LlamaIndex RAG Architectures</li>
+              <li><span>✓</span> OpenAI / Claude / Gemini Function Calling</li>
+              <li><span>✓</span> Vector DB Embeddings (Chroma / Pinecone)</li>
+              <li><span>✓</span> Real-Time Streaming Token Endpoints</li>
+            </ul>
+          </div>
+          <a href="#contact" class="service-cta-btn smooth-anchor" data-service="Python & AI Integration">
+            <span>Inquire for This Project</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Service 3: Headless WordPress & Web Modernization -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-box">🌐</div>
+            <span class="service-duration-badge">1 – 3 Weeks</span>
+          </div>
+          <h3 class="service-card-title">Headless WordPress & Modernization</h3>
+          <p class="service-card-desc">
+            Decoupling legacy, bloated WordPress sites into lightning-fast headless architectures with Next.js frontend, achieving 98+ Google Lighthouse scores.
+          </p>
+          <div class="service-deliverables">
+            <h4>Key Deliverables:</h4>
+            <ul>
+              <li><span>✓</span> Headless WP REST API / WPGraphQL Setup</li>
+              <li><span>✓</span> Next.js Static Site Generation (SSG / ISR)</li>
+              <li><span>✓</span> WooCommerce Custom Headless Checkout</li>
+              <li><span>✓</span> Sub-Second Page Speed & Core Web Vitals</li>
+            </ul>
+          </div>
+          <a href="#contact" class="service-cta-btn smooth-anchor" data-service="Headless WordPress Modernization">
+            <span>Inquire for This Project</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Service 4: Data Analytics & ETL Pipelines -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-box">📊</div>
+            <span class="service-duration-badge">1 – 2 Weeks</span>
+          </div>
+          <h3 class="service-card-title">Data Analytics & ETL Pipelines</h3>
+          <p class="service-card-desc">
+            Transforming raw unstructured data into actionable executive insights with automated Python Pandas ETL pipelines, SQL data warehouses, and interactive dashboards.
+          </p>
+          <div class="service-deliverables">
+            <h4>Key Deliverables:</h4>
+            <ul>
+              <li><span>✓</span> Automated Data Extraction & Cleaning (Pandas)</li>
+              <li><span>✓</span> SQL Schema Optimization & Query Tuning</li>
+              <li><span>✓</span> Interactive Power BI & Web Dashboards</li>
+              <li><span>✓</span> Automated Alerting & Anomaly Detection</li>
+            </ul>
+          </div>
+          <a href="#contact" class="service-cta-btn smooth-anchor" data-service="Data Analytics & Dashboards">
+            <span>Inquire for This Project</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT / INQUIRY SECTION
+         ======================================================== -->
+    <section class="contact-section" id="contact">
+      <div class="contact-card-box">
+        <h2 class="contact-title">Have an idea or project?<br>Let's build something extraordinary.</h2>
+        <p class="contact-desc">
+          Available for MERN stack web applications, Python & AI agent integrations, WordPress & Headless CMS solutions, and Data Analytics consulting.
+        </p>
+
+        <div class="contact-actions-row">
+          <!-- Direct WhatsApp Connect Button -->
+          <a 
+            href="https://wa.me/916392151138?text=Hi%20Ayaz,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="whatsapp-pill-btn" 
+            data-magnetic="0.25"
+            title="Chat directly on WhatsApp with Ayaz Khan"
+          >
+            <svg class="whatsapp-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>WhatsApp (+91 6392151138)</span>
+            <span class="pill-arrow">↗</span>
+          </a>
+
+          <button class="email-copy-pill" data-magnetic="0.25">
+            <span class="copy-icon">📋</span>
+            <span>ayazkhan.dev@gmail.com</span>
+          </button>
+
+          <a href="mailto:ayazkhan.dev@gmail.com?subject=Project%20Inquiry%20for%20Ayaz%20Khan" class="calendar-pill-btn" data-magnetic="0.25">
+            <span>Send Email Directly</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- Direct Social Profiles Bar -->
+        <div class="contact-socials-bar">
+          <span class="contact-socials-label">Connect Directly Across the Web</span>
+          <div class="contact-social-links">
+            <a href="https://github.com/khanayaz625" target="_blank" rel="noopener noreferrer" class="contact-social-pill" data-magnetic="0.15">
+              <span>GitHub</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/ayaz-khan-6545b222b/" target="_blank" rel="noopener noreferrer" class="contact-social-pill" data-magnetic="0.15">
+              <span>LinkedIn</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://www.instagram.com/__a.y.a.z___/" target="_blank" rel="noopener noreferrer" class="contact-social-pill" data-magnetic="0.15">
+              <span>Instagram</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>© 2025 Ayaz Khan. All rights reserved. MERN Developer & AI Engineer.</span>
+    <div class="footer-socials">
+      <a href="https://wa.me/916392151138?text=Hi%20Ayaz,%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://github.com/khanayaz625" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ayaz-khan-6545b222b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/__a.y.a.z___/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- Persistent Floating WhatsApp Quick Connect Widget -->
+  <aside class="floating-whatsapp-widget" aria-label="Direct WhatsApp Contact">
+    <a 
+      href="https://wa.me/916392151138?text=Hi%20Ayaz,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="floating-whatsapp-btn" 
+      aria-label="Chat directly on WhatsApp with Ayaz Khan (+91 6392151138)"
+      title="Chat on WhatsApp (+91 6392151138)"
+    >
+      <svg class="whatsapp-svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span class="whatsapp-pulse-ring"></span>
+    </a>
+  </aside>
+
+  <!-- Toast Container -->
+  <div class="toast-notification" id="toastMessage" role="status" aria-live="polite"></div>
+
+  <!-- Script Modules -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
